@@ -115,7 +115,10 @@ suite('Functional Tests', function() {
             .end(function(err, res) {
               assert.equal(res.status, 200);
               console.log(res.body);
-              assert.equal(res.body.result, 'successfully updated');
+              const outPut = res.body;
+              const expected = { result: 'successfully updated', _id: issue._id };
+              assert.deepEqual(outPut, expected);
+              // assert.deepEqual(res.body, { result: 'successfully updated', _id: issue._id });
               done();
             });
         });
@@ -138,7 +141,10 @@ suite('Functional Tests', function() {
             .end(function(err, res) {
               assert.equal(res.status, 200);
               console.log(res.body);
-              assert.equal(res.body.result, 'successfully updated');
+              const outPut = res.body;
+              const expected = { result: 'successfully updated', _id: issue._id };
+              assert.deepEqual(outPut, expected);
+              // assert.deepEqual(res.body, { result: 'successfully updated', _id: issue._id });
               done();
             });
         });
@@ -156,7 +162,7 @@ suite('Functional Tests', function() {
         .end(function(err, res) {
           assert.equal(res.status, 200);
           console.log(res.body);
-          assert.equal(res.body.error, 'missing _id');
+          assert.deepEqual(res.body, { error: 'missing _id' });
           done();
         });
     });
@@ -175,7 +181,10 @@ suite('Functional Tests', function() {
             .end(function(err, res) {
               assert.equal(res.status, 200);
               console.log(res.body);
-              assert.equal(res.body.error, 'no update field(s) sent');
+              const outPut = res.body;
+              const expected = { error: 'no update field(s) sent', _id: issue._id };
+              assert.deepEqual(outPut, expected);
+              // assert.deepEqual(res.body, { error: 'no update field(s) sent', _id: issue._id });
               done();
             });
         });
@@ -194,7 +203,10 @@ suite('Functional Tests', function() {
         .end(function(err, res) {
           assert.equal(res.status, 200);
           console.log(res.body);
-          assert.equal(res.body.error, 'could not update');
+          const outPut = res.body;
+          const expected = { error: 'could not update', _id: '1723953689699' };
+          assert.deepEqual(outPut, expected);
+          // assert.deepEqual(res.body, { error: 'could not update', _id: '1723953689699' });
           done();
         });
     });

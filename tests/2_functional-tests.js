@@ -21,7 +21,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.equal(res.body.result, 'successfully created');
           done();
         });
@@ -38,7 +38,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.equal(res.body.result, 'successfully created');
           done();
         });
@@ -54,7 +54,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.equal(res.body.error, 'required field(s) missing');
           done();
         });
@@ -68,7 +68,7 @@ suite('Functional Tests', function() {
         .get('/api/issues/test')
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.isArray(res.body);
           done();
         });
@@ -80,7 +80,7 @@ suite('Functional Tests', function() {
         .get('/api/issues/test?open=true')
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.isArray(res.body);
           done();
         });
@@ -92,7 +92,7 @@ suite('Functional Tests', function() {
         .get('/api/issues/test?open=true&created_by=Functional Test')
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.isArray(res.body);
           done();
         });
@@ -114,7 +114,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
               assert.equal(res.status, 200);
-              console.log(res.body);
+              // console.log(res.body);
               const outPut = res.body;
               const expected = { result: 'successfully updated', _id: issue._id };
               assert.deepEqual(outPut, expected);
@@ -140,7 +140,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
               assert.equal(res.status, 200);
-              console.log(res.body);
+              // console.log(res.body);
               const outPut = res.body;
               const expected = { result: 'successfully updated', _id: issue._id };
               assert.deepEqual(outPut, expected);
@@ -161,7 +161,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.deepEqual(res.body, { error: 'missing _id' });
           done();
         });
@@ -180,7 +180,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
               assert.equal(res.status, 200);
-              console.log(res.body);
+              // console.log(res.body);
               const outPut = res.body;
               const expected = { error: 'no update field(s) sent', _id: issue._id };
               assert.deepEqual(outPut, expected);
@@ -202,7 +202,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           const outPut = res.body;
           const expected = { error: 'could not update', _id: '1723953689699' };
           assert.deepEqual(outPut, expected);
@@ -226,7 +226,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
               assert.equal(res.status, 200);
-              console.log(res.body);
+              // console.log(res.body);
               assert.equal(res.body.result, 'successfully deleted');
               done();
             });
@@ -242,7 +242,7 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.equal(res.body.error, 'could not delete');
           done();
         });
@@ -255,7 +255,7 @@ suite('Functional Tests', function() {
         .send({})
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          console.log(res.body);
+          // console.log(res.body);
           assert.equal(res.body.error, 'missing _id');
           done();
         });

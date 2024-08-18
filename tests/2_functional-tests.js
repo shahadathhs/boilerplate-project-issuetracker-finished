@@ -22,7 +22,7 @@ suite('Functional Tests', function() {
         .end(function(err, res) {
           assert.equal(res.status, 200);
           console.log(res.body);
-          assert.equal(res.body.result, 'successfully added');
+          assert.equal(res.body.result, 'successfully created');
           done();
         });
     });
@@ -39,7 +39,7 @@ suite('Functional Tests', function() {
         .end(function(err, res) {
           assert.equal(res.status, 200);
           console.log(res.body);
-          assert.equal(res.body.result, 'successfully added');
+          assert.equal(res.body.result, 'successfully created');
           done();
         });
     });
@@ -186,7 +186,7 @@ suite('Functional Tests', function() {
       chai.request(server)
         .put('/api/issues/test')
         .send({
-          _id: 'invalid_id',
+          _id: '1723953689699',
           issue_title: 'Updated Title',
           issue_text: 'Updated Text',
           created_by: 'Updated Functional Test'

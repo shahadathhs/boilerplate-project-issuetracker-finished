@@ -46,7 +46,7 @@ module.exports = function (app) {
       };
 
       issues.push(newIssue);
-      res.json({addedIssue: newIssue, result: 'successfully added'});
+      res.json({...newIssue, result: 'successfully created'});
     })
     
     .put(function (req, res){
@@ -60,8 +60,8 @@ module.exports = function (app) {
       const issue = issues.find(issue => issue._id === _id && issue.project === project);
 
       if (!issue) {
-        return res.json({ error: 'could not update' });
-      }
+        return res.json({ error: 'could not update', _id });
+      }      
 
       if(!issue_title && !issue_text && !created_by && !assigned_to && !status_text && !open) {
         return res.json({ error: 'no update field(s) sent',  _id });
